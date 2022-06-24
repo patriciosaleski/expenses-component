@@ -1,0 +1,41 @@
+@mixin flex($dir: row, $justify: false, $align-c: false, $align-i: false, $gap: false){
+    display: flex;
+    flex-direction: $dir;
+    @if $justify { justify-content: $justify; }
+    @if $align-c { align-content: $align-c; }
+    @if $align-i { align-items: $align-i; }
+    @if $gap { gap: $gap }
+}
+
+@mixin size ($width: false, $height: false) {
+    @if $width {width: $width;}
+    @if $height { height: $height;}
+}
+
+@mixin center-element {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+@mixin grid($col: 0, $row: 0, $csize: 1fr, $rsize: 1fr, $justify-c: false, $align-c: false, $row-gap: false, $col-gap: false) {
+    display: grid;
+    grid-template-columns: repeat($col, $csize);
+    grid-template-rows: repeat($row, $rsize);
+    @if $justify-c { justify-content: $justify-c; }
+    @if $align-c { align-content: $align-c; }
+    @if $row-gap { row-gap: $row-gap; }
+    @if $col-gap { column-gap: $col-gap; }
+}
+
+@mixin primary-font ($size: 1.8em, $color: false, $weight: false, 
+                    $align:false, $lh: false, $ls: false){
+    font-family: 'DM Sans', sans-serif;
+    font-size: $size;
+    @if $color { color: $color; }
+    @if $weight { font-weight: map-get($font-weight, $weight); }
+    @if $align { text-align: $align; }
+    @if $lh { line-height: $lh; }
+    @if $ls { letter-spacing: $ls; }
+}

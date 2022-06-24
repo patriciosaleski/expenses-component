@@ -1,0 +1,166 @@
+body {
+    @include size(100vw, 100vh);
+    @include flex(column, $justify: center, $align-i:center, $gap: 2rem);
+    background-color: map-get($body-color, cream);
+
+    .balance {
+        @include size(50rem, 12rem);
+        @include flex($justify: space-between, $align-i: center);
+        background-color: map-get($primary-colors, soft-red );
+        border-radius: 1.5rem;
+        padding: 0 2rem;
+
+        p {
+            @include primary-font(1.6em, $color: white);
+
+            &:not(:first-of-type) {
+                font-size: 4em;
+                font-weight: map-get($font-weight, bold);
+            }
+        }
+    }
+
+    .graph {
+        @include size(50rem, auto);
+        background-color: map-get($body-color, pale-orange);
+        border-radius: 1.5rem;
+        padding: 3rem 4rem;
+
+        hr {
+            @include size(auto, .2rem);
+            background-color: map-get($body-color, cream);
+            margin: 3rem 0;
+        }
+
+        &__title {
+            @include primary-font(3em, $weight: bold, $color: map-get($body-color, dark-brown));
+            margin-bottom: 1rem;
+        }
+
+        &__timeline {
+            @include grid($col: 7, $row: 1, $csize: 5rem, $rsize: 20rem, $col-gap: 1.15rem);
+
+            .item {
+                @include flex($dir: column, $justify: flex-end, $align-i: center);
+                @include primary-font(1.4em, $color: map-get($body-color, medium-brown));
+                cursor: pointer;
+                transition: all .2s ease-out;
+
+                .active {
+                    background-color: map-get($primary-colors, var-cyan);
+                }
+
+                &:hover {
+                    .item__value {
+                        display: block;
+                    }
+
+                    .item__graph {
+                        filter: brightness(120%);
+                    }
+                }
+                
+                &__value {
+                    @include primary-font(1.2em, $color: map-get($body-color, pale-orange), $weight: bold, $align: center);
+                    background-color: map-get($body-color, dark-brown);
+                    border-radius: .5rem;
+                    margin-bottom: 1rem;
+                    padding: .4rem;
+                    display: none;
+                    width: 6.2rem;
+                }
+
+                &__graph {
+                    @include size(100%, 5rem);
+                    background-color: map-get($primary-colors, soft-red );
+                    border-radius: .5rem;
+                }
+            }
+        }
+
+        &__report {
+            @include flex($justify: space-between, $align-i: flex-end);
+
+            &--total p {
+                @include primary-font(1.6em, $color: map-get($body-color, medium-brown));
+
+                &:not(:first-of-type) {
+                    @include primary-font(4.8em, $color: map-get($body-color, dark-brown), $weight: bold);
+                }
+            }
+
+            &--variation p {
+                &:first-of-type {
+                    @include primary-font(2em, $color: map-get($body-color, dark-brown), $weight: bold, $align: right);
+                }
+
+                &:not(:first-of-type) {
+                    @include primary-font(1.6em, $color: map-get($body-color, medium-brown));
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        .balance {
+            width: 45rem;
+        }
+    
+        .graph {
+            width: 45rem;
+            padding: 2rem 3rem;
+    
+            &__timeline {
+                @include grid($col: 7, $row: 1, $csize: 4.5rem, $rsize: 20rem, $col-gap: 1.25rem);
+
+                .item {
+                    &__value {
+                        margin-bottom: .5rem;
+                        font-size: 1em;
+                        width: 5.8rem;
+                    }
+                }
+            }
+
+            &__report {
+                &--total p {
+                    font-size: 1.4em;
+
+                    &:not(:first-of-type) {
+                        font-size: 4em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        .balance {
+            width: 35rem;
+        }
+
+        .graph {
+            width: 35rem;
+            padding: 2rem;
+
+            &__title {
+                font-size: 2.5em;
+            }
+
+            &__timeline {
+                @include grid($col: 7, $row: 1, $csize: 3.7rem, $rsize: 20rem, $col-gap: .85rem);
+
+                .item {
+                    &__value {
+                        font-size: .8em;
+                        width: 4.6rem;
+                    }
+                }
+            }
+        }
+    }
+}

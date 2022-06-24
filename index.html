@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Expenses chart component</title>
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 1.2em; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+
+<body>
+  <div class="balance">
+    <div class="balance__container">
+      <div class="balance__container--balance">
+        <p>My balance</p>
+        <p id="balance-total">$921.48</p>
+      </div>
+    </div>
+
+    <div class="balance__logo">
+      <svg width="72" height="48" viewBox="0 0 72 48" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#382314" cx="48" cy="24" r="24"/><circle stroke="#FFF" stroke-width="2" cx="24" cy="24" r="23"/></g></svg>
+    </div>
+  </div>
+
+  <div class="graph">
+    <h1 class="graph__title">Spending - Last 7 days</h1>
+
+    <div class="graph__timeline" id="chart">
+      <!-- each bar created in js -->
+    </div>
+
+    <hr>
+
+    <div class="graph__report">
+      <div class="graph__report--total">
+        <p>Total this month</p>
+        <p>$478.33</p>
+      </div>
+      <div class="graph__report--variation">
+        <p>+2.4%</p>
+        <p>from last month</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/patriciosaleski">Patricio Saleski</a>
+  </div>
+  <script src="./script/main.js"></script>
+</body>
+</html>

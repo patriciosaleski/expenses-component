@@ -1,0 +1,34 @@
+{
+  "name": "expenses-chart-component",
+  "version": "1.0.0",
+  "description": "Challenge for Frontend Mentor's Expenses Chart Component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --includepath scss scss/index.scss css/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patriciosaleski/frontendmentor.git"
+  },
+  "keywords": [
+    "frontendmentor",
+    "frontend",
+    "mentor",
+    "challenges"
+  ],
+  "author": "Patricio Saleski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patriciosaleski/frontendmentor/issues"
+  },
+  "homepage": "https://github.com/patriciosaleski/frontendmentor#readme",
+  "devDependencies": {
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "got": "^12.1.0"
+  }
+}
